@@ -10,7 +10,7 @@ import Cocktail from "../services/cocktail.model";
 // undefined = no params passed to view
 export type RootStackParamList = {
   Cocktails: undefined;
-  Details: undefined;
+  Details: { cocktailId: number };
   Ingredients: undefined;
 };
 
@@ -42,18 +42,14 @@ export interface HomeScreenProps {
 }
 
 export interface DetailsScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, "Details">;
-}
-
-export interface SettingsScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
-}
-
-export interface SettingsScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
-}
-
-export interface CocktailComponentProps {
   cocktail: Cocktail;
   navigation: StackNavigationProp<RootStackParamList, "Details">;
+}
+
+export interface SettingsScreenProps {
+  navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
+}
+
+export interface SettingsScreenProps {
+  navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
 }

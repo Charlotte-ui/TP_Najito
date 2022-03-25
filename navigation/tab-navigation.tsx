@@ -19,9 +19,7 @@ export const TabNavigator = () => {
             let iconName: any; // TODO: find better type
 
             if (route.name === "Cocktails") {
-              iconName = focused
-                ? "beer"
-                : "beer";
+              iconName = focused ? "beer" : "beer";
             } else if (route.name === "Ingredients") {
               iconName = focused ? "ios-list-sharp" : "ios-list-outline";
             }
