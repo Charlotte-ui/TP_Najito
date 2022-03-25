@@ -1,6 +1,6 @@
-import Cocktail from './cocktail.model';
+import Cocktail from "./cocktail.model";
 
-const rootEndpoint = 'https://www.thecocktaildb.com/api/json/v1/1';
+const rootEndpoint = "https://www.thecocktaildb.com/api/json/v1/1";
 
 export interface Drink {
   idDrink: number;
@@ -11,9 +11,15 @@ export interface Drink {
 
 class CocktailDbApi {
   searchCocktailsByName(name: string): Promise<Array<Cocktail>> {
-    return this.fetchFromApi(`${rootEndpoint}/search.php?s=${name.trim()}`).then((drinks) =>
-      this.createCocktails(drinks)
-    );
+    return this.fetchFromApi(
+      `${rootEndpoint}/search.php?s=${name.trim()}`
+    ).then((drinks) => this.createCocktails(drinks));
+  }
+
+  searchCocktailsByIngredient(ingredient: string): Promise<Array<Cocktail>> {
+    return this.fetchFromApi(
+      `${rootEndpoint}/filter.php?i=${ingredient.trim()}`
+    ).then((drinks) => this.createCocktails(drinks));
   }
 
   private fetchFromApi(query: string): Promise<Array<Drink>> {
@@ -33,10 +39,14 @@ class CocktailDbApi {
     return drinks.map((drink) => this.createCocktail(drink));
   }
 
-  private createCocktail(drink: Drink){
-    return new Cocktail(drink.idDrink,drink.strDrink,drink.strDrinkThumb,drink.strInstructions);
+  private createCocktail(drink: Drink) {
+    return new Cocktail(
+      drink.idDrink,
+      drink.strDrink,
+      drink.strDrinkThumb,
+      drink.strInstructions
+    );
   }
-
 }
 
 export default new CocktailDbApi();
