@@ -41,6 +41,12 @@ export interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, "Details">;
 }
 
+export interface RechercheProps {
+  navigation: StackNavigationProp<RootStackParamList, "Details">;
+  recherche;
+  placeholder: string;
+}
+
 export interface DetailsScreenProps {
   cocktail: Cocktail;
   navigation: StackNavigationProp<RootStackParamList, "Details">;
