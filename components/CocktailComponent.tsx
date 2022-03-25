@@ -14,7 +14,7 @@ export default class CocktailComponent extends Component<
           style={styles.container}
           onPress={() => {
             this.props.navigation.navigate("Details", {
-              cocktailId: this.props.cocktail.id,
+              cocktail: this.props.cocktail,
             });
           }}
         >

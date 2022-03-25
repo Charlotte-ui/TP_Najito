@@ -2,6 +2,7 @@ import React from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
+import { RouteProp } from "@react-navigation/core";
 import DetailsScreen from "../screens/DetailsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import Cocktail from "../services/cocktail.model";
@@ -10,7 +11,7 @@ import Cocktail from "../services/cocktail.model";
 // undefined = no params passed to view
 export type RootStackParamList = {
   Cocktails: undefined;
-  Details: { cocktailId: number };
+  Details: { cocktail: Cocktail };
   Ingredients: undefined;
 };
 
@@ -37,17 +38,13 @@ export const SettingsStackScreen = () => {
 };
 
 export interface HomeScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, "Cocktails">;
-  onSubmittingEdit;
+  navigation: StackNavigationProp<RootStackParamList, "Details">;
 }
 
 export interface DetailsScreenProps {
   cocktail: Cocktail;
   navigation: StackNavigationProp<RootStackParamList, "Details">;
-}
-
-export interface SettingsScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
+  route: RouteProp<RootStackParamList, "Details">;
 }
 
 export interface SettingsScreenProps {
