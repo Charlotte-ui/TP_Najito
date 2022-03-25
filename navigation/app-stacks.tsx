@@ -8,9 +8,9 @@ import SettingsScreen from "../screens/SettingsScreen";
 // Define view names and associated params
 // undefined = no params passed to view
 export type RootStackParamList = {
-  Home: undefined;
+  Cocktails: undefined;
   Details: undefined;
-  Settings: undefined;
+  Ingredients: undefined;
 };
 
 // Define view stack inside home tab
@@ -18,7 +18,7 @@ const HomeStack = createStackNavigator<RootStackParamList>();
 export const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="Cocktails" component={HomeScreen} />
       <HomeStack.Screen name="Details" component={DetailsScreen} />
     </HomeStack.Navigator>
   );
@@ -29,14 +29,15 @@ const SettingsStack = createStackNavigator<RootStackParamList>();
 export const SettingsStackScreen = () => {
   return (
     <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Settings" component={SettingsScreen} />
+      <SettingsStack.Screen name="Ingredients" component={SettingsScreen} />
       <SettingsStack.Screen name="Details" component={DetailsScreen} />
     </SettingsStack.Navigator>
   );
 };
 
 export interface HomeScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, "Home">;
+  navigation: StackNavigationProp<RootStackParamList, "Cocktails">;
+  onSubmittingEdit;
 }
 
 export interface DetailsScreenProps {
@@ -44,5 +45,5 @@ export interface DetailsScreenProps {
 }
 
 export interface SettingsScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, "Settings">;
+  navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
 }

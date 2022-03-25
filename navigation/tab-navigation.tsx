@@ -18,11 +18,11 @@ export const TabNavigator = () => {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName: any; // TODO: find better type
 
-            if (route.name === "Home") {
+            if (route.name === "Cocktails") {
               iconName = focused
-                ? "ios-information-circle"
-                : "ios-information-circle-outline";
-            } else if (route.name === "Settings") {
+                ? "beer"
+                : "beer";
+            } else if (route.name === "Ingredients") {
               iconName = focused ? "ios-list-sharp" : "ios-list-outline";
             }
 
@@ -36,11 +36,11 @@ export const TabNavigator = () => {
         }}
       >
         <Tab.Screen
-          name="Home"
+          name="Cocktails"
           component={HomeStackScreen}
           options={{ tabBarBadge: 3 }}
         />
-        <Tab.Screen name="Settings" component={SettingsStackScreen} />
+        <Tab.Screen name="Ingredients" component={SettingsStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

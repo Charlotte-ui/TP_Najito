@@ -10,8 +10,8 @@ export default class SettingsScreen extends Component<SettingsScreenProps, {}> {
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Text>Settings!</Text>
         <Button
-          title="Go to Home"
-          onPress={() => navigation.navigate("Home")}
+          title="Go to Cocktails"
+          onPress={() => navigation.navigate("Cocktails")}
         />
         <Button
           title="Go to Details"
