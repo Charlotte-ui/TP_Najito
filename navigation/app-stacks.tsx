@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import DetailsScreen from "../screens/DetailsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
+import Cocktail from "../services/cocktail.model";
 
 // Define view names and associated params
 // undefined = no params passed to view
@@ -46,4 +47,13 @@ export interface DetailsScreenProps {
 
 export interface SettingsScreenProps {
   navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
+}
+
+export interface SettingsScreenProps {
+  navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
+}
+
+export interface CocktailComponentProps {
+  cocktail: Cocktail;
+  navigation: StackNavigationProp<RootStackParamList, "Details">;
 }
