@@ -4,15 +4,24 @@ import { RechercheProps } from "../navigation/app-stacks";
 import Cocktail from "../services/cocktail.model";
 import CocktailComponent from "../components/CocktailComponent";
 
+interface RechercheState {
+  cocktails: Array<Cocktail>;
+}
 
+export default class Recherche extends Component<RechercheProps, RechercheState >{
+  state: RechercheState = {
+    cocktails: new Array<Cocktail>(),
+  };
 
-export default class Recherche extends Component<
-  RechercheProps,
-  {}
-> {
+  updateInput(newInput: string) {
+    this.props.recherche(newInput)
+      .then((cocktails: Array<Cocktail>) => {
+        this.setState({ cocktails });
+      });
+  }
  
   affichage() {
-    if (this.props.cocktails.length === 0) {
+    if (this.state.cocktails.length === 0) {
       return (
         <View style={styles.container}>
           <Text>Nothing to drink yet !</Text>
@@ -22,7 +31,7 @@ export default class Recherche extends Component<
       return (
         <FlatList<Cocktail>
           style={styles.cocktails}
-          data={this.props.cocktails}
+          data={this.state.cocktails}
           keyExtractor={(cocktail) => cocktail.id.toString()}
           renderItem={({ item }) => {
             return (
@@ -42,7 +51,7 @@ export default class Recherche extends Component<
       <View>
         <TextInput
           style={styles.input}
-          onChangeText={(text) => this.props.recherche(text)}
+          onChangeText={(text) => this.updateInput(text)}
           placeholder={this.props.placeholder}
         />
         {this.affichage()}

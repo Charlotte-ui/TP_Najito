@@ -45,7 +45,6 @@ export interface RechercheProps {
   navigation: StackNavigationProp<RootStackParamList, "Details">;
   recherche;
   placeholder: string;
-  cocktails: Array<Cocktail>;
 }
 
 export interface DetailsScreenProps {
@@ -55,5 +54,5 @@ export interface DetailsScreenProps {
 }
 
 export interface SettingsScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, "Ingredients">;
+  navigation: StackNavigationProp<RootStackParamList, "Details">;
 }
