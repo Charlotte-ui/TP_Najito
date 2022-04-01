@@ -53,6 +53,12 @@ export interface DetailsScreenProps {
   route: RouteProp<RootStackParamList, "Details">;
 }
 
+
+export interface CocktailComponentProps {
+  cocktail: Cocktail;
+  navigation: StackNavigationProp<RootStackParamList, "Details">;
+}
+
 export interface SettingsScreenProps {
   navigation: StackNavigationProp<RootStackParamList, "Details">;
 }

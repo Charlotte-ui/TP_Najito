@@ -25,18 +25,25 @@ class CocktailDbApi {
   private fetchFromApi(query: string): Promise<Array<Drink>> {
     return (
       fetch(query)
-        // FIXME: JSON parse error when ingredient is not found
-        .then((response) => response.json())
+        .then((response) => {
+          try {
+            return response.json()     
+          } catch (error) {
+            return [];
+          }    
+        })
         .then((jsonResponse) => jsonResponse.drinks || [])
         .catch((error) => {
-          console.error(error);
+       //  console.error(error);
+
         })
     );
   }
 
   private createCocktails(drinks: Array<Drink>): Array<Cocktail> {
     // Create cocktails
-    return drinks.map((drink) => this.createCocktail(drink));
+    if (drinks) return drinks.map((drink) => this.createCocktail(drink));
+    else return [];
   }
 
   private createCocktail(drink: Drink) {

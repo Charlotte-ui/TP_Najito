@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { DetailsScreenProps } from "../navigation/app-stacks";
+import { CocktailComponentProps } from "../navigation/app-stacks";
 import Cocktail from "../services/cocktail.model";
 
 export default class CocktailComponent extends Component<
-  DetailsScreenProps,
+CocktailComponentProps,
   {}
 > {
   render() {
