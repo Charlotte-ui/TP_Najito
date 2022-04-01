@@ -4,10 +4,6 @@ import { DetailsScreenProps } from "../navigation/app-stacks";
 import IngredientComponent from "../components/IngredientComponent"
 export default class DetailsScreen extends Component<DetailsScreenProps, {}> {
   render() {
-
-    
-
-
     return (
       <View style={styles.container}>
         <Text style={styles.title}>
