@@ -62,3 +62,8 @@ export interface CocktailComponentProps {
 export interface SettingsScreenProps {
   navigation: StackNavigationProp<RootStackParamList, "Details">;
 }
+
+export interface IngredientProps {
+  ingredient: string;
+  measure: string|null;
+}

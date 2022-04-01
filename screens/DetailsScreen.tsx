@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet, FlatList } from "react-native";
 import { DetailsScreenProps } from "../navigation/app-stacks";
-
+import IngredientComponent from "../components/IngredientComponent"
 export default class DetailsScreen extends Component<DetailsScreenProps, {}> {
   render() {
+
+    
+
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>
@@ -17,6 +21,19 @@ export default class DetailsScreen extends Component<DetailsScreenProps, {}> {
         <Text style={styles.text}>
           {this.props.route.params.cocktail.instructions}
         </Text>
+        <Text style={styles.title}>Ingredients</Text>
+        <FlatList
+        data={this.props.route.params.cocktail.ingredients}
+        renderItem={({ item }) => {
+          return (
+            <IngredientComponent
+            ingredient={item.text}
+            measure={item.measure}
+            />
+          );
+        }}
+
+        />
       </View>
     );
   }
